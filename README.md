@@ -1,9 +1,11 @@
 # palette
 
-**A very small css utility to generate color themes.**
+**A very small css utility to generate color themes**
+
 It is nothing more than a set of css variables accessible everywhere in your code.
 
-##Why these tool
+## Why these tool
+
 I was getting tired of changing every color class evrey time i was switching from a CSS framework to another.
 Not much work you would say.
 
@@ -14,7 +16,8 @@ But every config file is different though well documented.
 
 So I made a unique utility to set up color sheme.
 
-##How it works
+## How it works
+
 It injectes variables in the :root pseudo-class.
 Define your set of colors ans it will simply create a panel of color tons.
 
@@ -23,9 +26,10 @@ Define your set of colors ans it will simply create a panel of color tons.
 --primary-lighten, --primary-lighten2
 }
 ```
-##How to use
 
-Use your variables in pure css
+## How to use
+
+Use your variables in pure css within your classes
 
 ```scss
 .btn{
@@ -40,7 +44,8 @@ Get theme [here](https://github.com/Areskul/mixins#Mixins)
 <div color="primary-lighten" text="danger-darken3"/>
 ```
 
-##Set up/ Customize your themes
+## Set up/ Customize your themes
+
 Let's say you've made a variable.css file like below
 Import palette.scss functions in your variable.scss
 
