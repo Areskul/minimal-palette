@@ -3,8 +3,9 @@
 **A very small css utility to generate color themes**
 
 It is nothing more than a set of css variables accessible everywhere in your code.
+Can be used with all modern js frameworks like Vue.js
 
-## Why these tool
+## Why this tool?
 
 I was getting tired of changing every color class evrey time i was switching from a CSS framework to another.
 Not much work you would say.
@@ -83,6 +84,10 @@ $colors: (
 );
 @include palette.generate-theme($name, $colors);
 ```
+
+## Use it in your project
+
+
 And finally include it in your main.ts / or main.js
 
 main.ts
