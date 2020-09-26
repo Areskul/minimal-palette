@@ -1,11 +1,9 @@
 export const color = {
   props: {
     color: String,
-    text: String,
   },
   mounted() {
     this.setColor();
-    this.setText();
   },
   methods: {
     setColor: function() {
@@ -16,6 +14,16 @@ export const color = {
         return;
       }
     },
+  },
+};
+export const text = {
+  props: {
+    text: String,
+  },
+  mounted() {
+    this.setText();
+  },
+  methods: {
     setText: function() {
       if (this.text) {
         const color = `var(--${this.text})`;
