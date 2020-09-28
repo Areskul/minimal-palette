@@ -1,4 +1,29 @@
 // Generate 10+1 tons from a single color
+$themes: (
+  "light": (
+    "fg": #eeeeee,
+    "bg": #ffffff,
+    "primary": #ca5b89,
+    "secondary": #fa709a,
+    "ternary": #000000,
+    "success": #7ccc13,
+    "info": #18d1ff,
+    "warning": #fee140,
+    "danger": #cf0000,
+  ),
+  "dark": (
+    "fg": #1f1e1e,
+    "bg": #161313,
+    "primary": #5e6fce,
+    "secondary": #5e09cc,
+    "ternary": #ffffff,
+    "success": #35b91a,
+    "info": #37c1eb,
+    "warning": #da9a11,
+    "danger": #ec0b0b,
+  ),
+) !default;
+
 @mixin single-color-palette($name, $value) {
   $percentages: (
     "": 10%,
@@ -14,24 +39,29 @@
       @if $mode==darken {
         $percentage: -$percentage;
       }
-      --#{$name}-#{$mode}#{$deg}: #{scale-color(
-          $value,
-          $lightness: $percentage
-        )};
+      --#{$name}-#{$mode}#{$deg}: #{scale-color($value, $lightness: $percentage)};
     }
   }
 }
-
 // Generate tons from all colors
 @mixin generate-palette($colors) {
   @each $name, $value in $colors {
     @include single-color-palette($name, $value);
   }
 }
-
 // Generate theme class
-@mixin generate_theme($name, $colors) {
+@mixin generate-theme($name, $colors) {
   .theme--#{$name} {
     @include generate-palette($colors);
   }
 }
+//Generate all themes from list
+@mixin generate-themes($themes: $themes) {
+  @each $label, $theme in $themes {
+    @debug $label;
+
+    @include generate-theme($label, $theme);
+  }
+}
+//Runthe script
+@include generate-themes();
