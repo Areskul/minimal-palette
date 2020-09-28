@@ -39,7 +39,10 @@ $themes: (
       @if $mode==darken {
         $percentage: -$percentage;
       }
-      --#{$name}-#{$mode}#{$deg}: #{scale-color($value, $lightness: $percentage)};
+      --#{$name}-#{$mode}#{$deg}: #{scale-color(
+          $value,
+          $lightness: $percentage
+        )};
     }
   }
 }
@@ -58,8 +61,6 @@ $themes: (
 //Generate all themes from list
 @mixin generate-themes($themes: $themes) {
   @each $label, $theme in $themes {
-    @debug $label;
-
     @include generate-theme($label, $theme);
   }
 }
